@@ -58,10 +58,11 @@ class DatabaseHelper {
     return await openDatabase(path, readOnly: false);
   }
 
-  kategorileriGetir() async {
+  Future<List<Map<String, dynamic>>> kategorileriGetir() async {
     var db = await _getDatabase();
     var sonuc = await db.query("kategori");
-    print(sonuc);
+    //print(sonuc);
+    return sonuc;
     /* BURASI EKLEME İÇİN BİR ÖRNEK
     var ekleme =
         await db.insert("kategori", {'kategoriBaslik': 'Test Kategorisi'});
